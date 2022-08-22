@@ -1,22 +1,24 @@
 import java.util.Scanner;
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        MonthlyReport monthlyReport = new MonthlyReport();
+        TesterClass testerClass = new TesterClass();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
-        printMenu();
-        int command = scanner.nextInt();
+
         while (true){
+            printMenu();
+           int command = scanner.nextInt();
             if(command == 1){
-
+                monthlyReport.FileToArrayList();
             }else if(command == 2){
-
+                System.out.println("2");
             }else if(command == 3){
-
+                System.out.println("3");
             }else if(command == 4){
-
+                System.out.println("4");
             }else if(command == 5){
-
+                System.out.println("5");
             }else if(command == 0){
                 System.out.println("Выход");
                 break;
@@ -24,8 +26,6 @@ public class Main {
                 System.out.println("Такая команда не поддерживается");
             }
         }
-        printMenu();
-        command = scanner.nextInt();
     }
 
 
