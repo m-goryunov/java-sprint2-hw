@@ -31,7 +31,6 @@ public class MonthlyReport {
                if(file == 1){
                    String [] lines1 = content.split(System.lineSeparator());
                    lines1 = content.split(",");
-
                    for (int i = 0; i< lines1.length;i++){
                        System.out.println(lines1[i]);
                    }
@@ -45,4 +44,11 @@ public class MonthlyReport {
            }
         }
     }
+    public void fileParser() {
+
+    }
 }
+
+                   //for (int i = 0; i< lines1.length;i++){
+        //System.out.println(lines1[i]);
+        //}
