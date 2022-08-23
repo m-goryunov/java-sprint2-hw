@@ -4,14 +4,22 @@ import java.nio.file.Path;
 
 public class TesterClass {
 
-   public void readFileContentsOrNull() {
-        for (int i = 1; i <= 3; i++){
-            try {
-                String fileContent = Files.readString(Path.of("resources/m.20210" + i +".csv"));
-                System.out.println(fileContent);
-                } catch (IOException e) {
-                    System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
-                }
+     public void hz() {
+        String orderInfo = "1,огурцы,20.05;2,помидоры,123.45;3,зайцы,0.50";
+        System.out.println(getTotalOrderAmount(orderInfo));
+        // Вывод: 144.0
+    }
+
+    public static double getTotalOrderAmount(String orderInfo) {
+        double totalAmount = 0d;
+        final String[] items = orderInfo.split(";");
+
+        for (String item : items) {
+            final String[] itemInfo = item.split(",");
+            totalAmount += Double.parseDouble(itemInfo[2]);
         }
-   }
+
+        return totalAmount;
+    }
 }
+
