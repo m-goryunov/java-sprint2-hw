@@ -44,11 +44,4 @@ public class MonthlyReport {
            }
         }
     }
-    public void fileParser() {
-
-    }
 }
-
-                   //for (int i = 0; i< lines1.length;i++){
-        //System.out.println(lines1[i]);
-        //}
