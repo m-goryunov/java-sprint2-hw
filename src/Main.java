@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        MonthlyReport monthlyReport = new MonthlyReport();
+        CreateReport createReport = new CreateReport();
         TesterClass testerClass = new TesterClass();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
 
@@ -10,7 +10,7 @@ public class Main {
             printMenu();
            int command = scanner.nextInt();
             if(command == 1){
-                monthlyReport.fileParseAndSplit();
+                createReport.readMonthReport();
             }else if(command == 2){
                 System.out.println("2");
             }else if(command == 3){
