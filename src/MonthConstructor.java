@@ -11,13 +11,13 @@ public class MonthConstructor {
         this.sum_of_one = sum_of_one;
     }
 
-    @Override
+    /*@Override
     public String toString() {
-        return "MonthConstructor{" +
+        return "{" +
                 "item_name='" + item_name + '\'' +
                 ", is_expense=" + is_expense +
                 ", quantity=" + quantity +
                 ", sum_of_one=" + sum_of_one +
                 '}';
-    }
+    }*/
 }

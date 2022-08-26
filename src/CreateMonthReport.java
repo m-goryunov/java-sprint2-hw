@@ -1,17 +1,19 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CreateMonthReport {
-    ReadCSVUtil readCSVUtil = new ReadCSVUtil();
-ArrayList<MonthlyReport> monthlyReports = new ArrayList<>();
-    void getReport(){
-        for (int i = 1; i <= 3; i++) {
+    static ReadCSVUtil readCSVUtil = new ReadCSVUtil();
+
+     static HashMap<Integer, ArrayList<MonthConstructor>> getReport(){
+         HashMap<Integer, ArrayList<MonthConstructor>> monthlyReportByMonth = new HashMap<>();
+         for (int i = 1; i <= 3; i++) {
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/m.20210" + i + ".csv");
-            MonthlyReport monthlyReport = createMonthReport(createReportRaw);
-            monthlyReports.add(monthlyReport);
-            System.out.println(monthlyReports);
+             ArrayList<MonthConstructor> monthlyReport = parseAndSplit(createReportRaw);
+            monthlyReportByMonth.put(i, monthlyReport);
         }
-    }
-     MonthlyReport createMonthReport(String createReportRaw){
+         return monthlyReportByMonth;
+     }
+     static ArrayList<MonthConstructor> parseAndSplit(String createReportRaw){
         String[] lines = createReportRaw.split(System.lineSeparator());
         ArrayList<MonthConstructor> recordList = new ArrayList<>();
         for (int i = 1; i < lines.length; i++) {
@@ -24,7 +26,6 @@ ArrayList<MonthlyReport> monthlyReports = new ArrayList<>();
             );
             recordList.add(record);
         }
-        return new MonthlyReport(recordList);
+        return recordList;
     }
-
 }
