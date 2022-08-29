@@ -11,7 +11,7 @@ public class MonthConstructor {
         this.sum_of_one = sum_of_one;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "{" +
                 "item_name='" + item_name + '\'' +
@@ -19,5 +19,5 @@ public class MonthConstructor {
                 ", quantity=" + quantity +
                 ", sum_of_one=" + sum_of_one +
                 '}';
-    }*/
+    }
 }
