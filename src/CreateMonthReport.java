@@ -3,13 +3,13 @@ import java.util.ArrayList;
 public class CreateMonthReport {
     ReadCSVUtil readCSVUtil = new ReadCSVUtil();
 ArrayList<MonthlyReport> monthlyReports = new ArrayList<>();
-    void getReport(){
+    ArrayList<MonthlyReport> getReport(){
         for (int i = 1; i <= 3; i++) {
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/m.20210" + i + ".csv");
             MonthlyReport monthlyReport = createMonthReport(createReportRaw);
             monthlyReports.add(monthlyReport);
-            System.out.println(monthlyReports);
         }
+        return monthlyReports;
     }
      MonthlyReport createMonthReport(String createReportRaw){
         String[] lines = createReportRaw.split(System.lineSeparator());
