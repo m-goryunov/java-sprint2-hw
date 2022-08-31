@@ -4,13 +4,11 @@ import java.util.HashMap;
 public class ReadYearlyReport {
     ReadCSVUtil readCSVUtil = new ReadCSVUtil();
 
-    public HashMap<Integer, ArrayList<YearConstructor>> yearlyReports(){
-        HashMap<Integer,ArrayList<YearConstructor>> yearlyReportsMap = new HashMap<>();
+    public ArrayList<YearConstructor> yearlyReports(){
+        //HashMap<Integer,ArrayList<YearConstructor>> yearlyReportsMap = new HashMap<>();
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/y.2021.csv");
-            yearlyReportsMap.put(2021,createYearReport(createReportRaw));
-
-        System.out.println(yearlyReportsMap);
-        return yearlyReportsMap;
+            ArrayList<YearConstructor> yearlyReports = createYearReport(createReportRaw);
+        return yearlyReports;
     }
 
     public ArrayList<YearConstructor> createYearReport(String createReportRaw){
