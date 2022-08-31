@@ -2,23 +2,24 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-       MonthlyReport monthlyReport = new MonthlyReport();
-        //TesterClass testerClass = new TesterClass();
+        ReadYearlyReport readYearlyReport = new ReadYearlyReport();
+        MonthlyReport monthlyReport = new MonthlyReport();
+        YearlyReport yearlyReport = new YearlyReport();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
 
         while (true){
             printMenu();
            int command = scanner.nextInt();
             if(command == 1){
-            monthlyReport.getMaxProfitItem();
             }else if(command == 2){
-                System.out.println("2");
             }else if(command == 3){
-                System.out.println("3");
             }else if(command == 4){
-                System.out.println("4");
+                System.out.println("Самые прибыльные товары:");
+                monthlyReport.getMaxProfitItem();
+                System.out.println("Самые большие траты:");
+                monthlyReport.getMaxExpense();
             }else if(command == 5){
-                System.out.println("5");
+                readYearlyReport.yearlyReports();
             }else if(command == 0){
                 System.out.println("Выход");
                 break;

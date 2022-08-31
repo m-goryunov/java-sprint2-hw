@@ -3,31 +3,42 @@ import java.util.HashMap;
 
 public class MonthlyReport {
 
-    CreateMonthReport createMonthReport = new CreateMonthReport();
-    HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = createMonthReport.monthlyReports();
+    ReadMonthlyReport readMonthlyReport = new ReadMonthlyReport();
+    HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = readMonthlyReport.monthlyReports();
 
     public void getMaxProfitItem(){
+
         for (int month: monthlyReportsMap.keySet()) {
-            int maxProfitSum = 0;
+            int maxProfitItem = 0;
             String maxProfitItemName = " ";
             ArrayList<MonthConstructor> items = monthlyReportsMap.get(month);
             for(MonthConstructor record: items) {
                 if(!record.is_expense){
-                    int tempProfitSum = record.quantity * record.sum_of_one;
-                    if(tempProfitSum > maxProfitSum){
-                            maxProfitSum = tempProfitSum;
+                    int tempProfitItem = record.quantity * record.sum_of_one;
+                    if(tempProfitItem > maxProfitItem){
+                            maxProfitItem = tempProfitItem;
                             maxProfitItemName = record.item_name;
                     }
                 }
             }
-            System.out.println(GetMonthName.getMonthName(month) + ". " + maxProfitItemName + " - " + maxProfitSum);
+            System.out.println(GetMonthName.getMonthName(month) + ". " + maxProfitItemName + " - " + maxProfitItem);
+        }
+    }
+    public void getMaxExpense(){
+        for (int month: monthlyReportsMap.keySet()) {
+            int maxExpenseItem = 0;
+            String maxExpenseItemName = " ";
+            ArrayList<MonthConstructor> items = monthlyReportsMap.get(month);
+            for(MonthConstructor record: items) {
+                if(record.is_expense){
+                    int findMaxExpenseItem = record.quantity * record.sum_of_one;
+                    if( findMaxExpenseItem > maxExpenseItem){
+                        maxExpenseItem = findMaxExpenseItem;
+                        maxExpenseItemName = record.item_name;
+                    }
+                }
+            }
+            System.out.println(GetMonthName.getMonthName(month) + ". " + maxExpenseItemName + " - " + maxExpenseItem);
         }
     }
 }
-
-//Что нужно:
-// По каждому месяцу
-//Название месяца;
-//Самый прибыльный товар, то есть товар для которого is_expense == false,
-// а произведение количества (quantity) на сумму (sum_of_one) максимально. Вывести название товара и сумму;
-//Самую большую трату. Вывести название товара и сумму.
