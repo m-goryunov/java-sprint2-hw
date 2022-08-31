@@ -5,17 +5,16 @@ public class CreateMonthReport {
 
     ReadCSVUtil readCSVUtil = new ReadCSVUtil();
 
-    HashMap<Integer,MonthlyReport> monthlyReports = new HashMap<>();
-
-    public HashMap<Integer, MonthlyReport> monthlyReports(){
+    public HashMap<Integer, ArrayList<MonthConstructor>> monthlyReports(){
+        HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = new HashMap<>();
         for (int i = 1; i <= 3; i++) {
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/m.20210" + i + ".csv");
-            MonthlyReport monthlyReport = createMonthReport(createReportRaw);
-            monthlyReports.put(i,monthlyReport);
+            monthlyReportsMap.put(i,createMonthReport(createReportRaw));
         }
-        return monthlyReports;
+        return monthlyReportsMap;
     }
-     public MonthlyReport createMonthReport(String createReportRaw){
+
+    public ArrayList<MonthConstructor> createMonthReport(String createReportRaw){
         String[] lines = createReportRaw.split(System.lineSeparator());
         ArrayList<MonthConstructor> recordList = new ArrayList<>();
         for (int i = 1; i < lines.length; i++) {
@@ -26,11 +25,9 @@ public class CreateMonthReport {
                     Integer.parseInt(lineContents[2]),
                     Integer.parseInt(lineContents[3])
             );
-            if(record.is_expense = true)
                 recordList.add(record);
-
         }
-        return new MonthlyReport(recordList);
+        return recordList;
     }
 
 }
