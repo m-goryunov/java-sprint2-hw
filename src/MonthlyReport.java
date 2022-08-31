@@ -1,36 +1,27 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 public class MonthlyReport {
 
     CreateMonthReport createMonthReport = new CreateMonthReport();
     HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = createMonthReport.monthlyReports();
 
-    public void getMostProfitItem(){
-        ArrayList<MonthConstructor> findMaxExpense = monthlyReportsMap.get(1);
-
+    public void getMaxProfitItem(){
         for (int month: monthlyReportsMap.keySet()) {
+            int maxProfitSum = 0;
+            String maxProfitItemName = " ";
             ArrayList<MonthConstructor> items = monthlyReportsMap.get(month);
-
-            for (int i = 0; i< items.stream().count(); i++) {
-                MonthConstructor c = items.get(i);
-                        c.
-            }
-            for(MonthConstructor c: items) {
-                if(c.is_expense == true){
-                    c.
+            for(MonthConstructor record: items) {
+                if(!record.is_expense){
+                    int tempProfitSum = record.quantity * record.sum_of_one;
+                    if(tempProfitSum > maxProfitSum){
+                            maxProfitSum = tempProfitSum;
+                            maxProfitItemName = record.item_name;
+                    }
                 }
             }
-
-            MonthConstructor c = items.stream().filter(item -> item.is_expense == false)[0];
-
+            System.out.println(GetMonthName.getMonthName(month) + ". " + maxProfitItemName + " - " + maxProfitSum);
         }
-        for (int i = 1; i < findMaxExpense.size(); i++) {
-
-        }
-
-
     }
 }
 

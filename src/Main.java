@@ -10,7 +10,7 @@ public class Main {
             printMenu();
            int command = scanner.nextInt();
             if(command == 1){
-            monthlyReport.getMostProfitItem();
+            monthlyReport.getMaxProfitItem();
             }else if(command == 2){
                 System.out.println("2");
             }else if(command == 3){
