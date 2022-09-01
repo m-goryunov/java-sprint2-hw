@@ -19,21 +19,23 @@ public class ReportsCheck {
                 yearIncomeList.put(record.month,record.amount);
             }
         }
-        int amount = 0;
+
+        int amountSum = 0;
         for(int month: monthlyReportsMap.keySet()){
             ArrayList<MonthConstructor> list = monthlyReportsMap.get(month);
             for(MonthConstructor record: list){
+                int amount = 0;
 
-                int amountTemp = record.sum_of_one * record.quantity;
-                amount += amountTemp;
+                amountSum = record.sum_of_one * record.quantity;
+                amount += amountSum;
                 if(record.is_expense){
                     monthExpenseList.put(month,amount);
                 } else {
                     monthIncomeList.put(month,amount);
-                    System.out.println(monthIncomeList);
-                    System.out.println("========");
                 }
             }
+            System.out.println(monthIncomeList);
+            System.out.println("========");
         }
         System.out.println(monthIncomeList +"|||" + monthExpenseList);
         System.out.println(yearIncomeList + "|||" + yearExpenseList);
