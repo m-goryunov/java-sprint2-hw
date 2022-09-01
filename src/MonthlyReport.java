@@ -32,7 +32,7 @@ public class MonthlyReport {
             for(MonthConstructor record: items) {
                 if(record.is_expense){
                     int findMaxExpenseItem = record.quantity * record.sum_of_one;
-                    if( findMaxExpenseItem > maxExpenseItem){
+                    if(findMaxExpenseItem > maxExpenseItem){
                         maxExpenseItem = findMaxExpenseItem;
                         maxExpenseItemName = record.item_name;
                     }
@@ -41,4 +41,5 @@ public class MonthlyReport {
             System.out.println(GetMonthName.getMonthName(month) + ". " + maxExpenseItemName + " - " + maxExpenseItem);
         }
     }
+
 }

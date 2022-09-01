@@ -2,9 +2,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ReadYearlyReport readYearlyReport = new ReadYearlyReport();
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = new YearlyReport();
+        ReportsCheck reportsCheck = new ReportsCheck();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
 
         while (true){
@@ -13,13 +13,15 @@ public class Main {
             if(command == 1){
             }else if(command == 2){
             }else if(command == 3){
+                reportsCheck.reportsCheck();
             }else if(command == 4){
                 System.out.println("Самые прибыльные товары:");
                 monthlyReport.getMaxProfitItem();
                 System.out.println("Самые большие траты:");
                 monthlyReport.getMaxExpense();
             }else if(command == 5){
-                readYearlyReport.yearlyReports();
+                yearlyReport.GetProfitPerMonth();
+                yearlyReport.GetAvgIncomeAndExpense();
             }else if(command == 0){
                 System.out.println("Выход");
                 break;
@@ -28,7 +30,6 @@ public class Main {
             }
         }
     }
-
 
     public static void printMenu(){
     System.out.println("1. Считать все месячные отчеты");

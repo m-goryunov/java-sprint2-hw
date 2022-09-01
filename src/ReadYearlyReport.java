@@ -5,7 +5,6 @@ public class ReadYearlyReport {
     ReadCSVUtil readCSVUtil = new ReadCSVUtil();
 
     public ArrayList<YearConstructor> yearlyReports(){
-        //HashMap<Integer,ArrayList<YearConstructor>> yearlyReportsMap = new HashMap<>();
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/y.2021.csv");
             ArrayList<YearConstructor> yearlyReports = createYearReport(createReportRaw);
         return yearlyReports;
