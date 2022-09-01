@@ -20,14 +20,14 @@ public class ReportsCheck {
             }
         }
 
-        int amountSum = 0;
         for(int month: monthlyReportsMap.keySet()){
+            int amountIncome = 0;
+            int amountExpense = 0;
+            int amountSum = 0;
             ArrayList<MonthConstructor> list = monthlyReportsMap.get(month);
             for(MonthConstructor record: list){
-                int amount = 0;
-
                 amountSum = record.sum_of_one * record.quantity;
-                amount += amountSum;
+                amount += amountSum; // Пытаюсь проссумировать
                 if(record.is_expense){
                     monthExpenseList.put(month,amount);
                 } else {
