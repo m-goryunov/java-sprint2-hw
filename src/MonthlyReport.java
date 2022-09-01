@@ -20,6 +20,8 @@ public class MonthlyReport {
                             maxProfitItemName = record.item_name;
                     }
                 }
+                System.out.println(items);
+                System.out.println("========");
             }
             System.out.println(GetMonthName.getMonthName(month) + ". " + maxProfitItemName + " - " + maxProfitItem);
         }
