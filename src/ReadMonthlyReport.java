@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ReadMonthlyReport {
-
     ReadCSVUtil readCSVUtil = new ReadCSVUtil();
 
-    public HashMap<Integer, ArrayList<MonthConstructor>> monthlyReports(){
+    public HashMap<Integer, ArrayList<MonthConstructor>> readMonthlyReports(){
         HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = new HashMap<>();
         for (int i = 1; i <= 3; i++) {
             String createReportRaw = readCSVUtil.readFileContentsOrNull("resources/m.20210" + i + ".csv");

@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class YearlyReport {
     ReadYearlyReport readYearlyReport = new ReadYearlyReport();
-    ArrayList<YearConstructor> yearlyReportsList = readYearlyReport.yearlyReports();
+    ArrayList<YearConstructor> yearlyReportsList = readYearlyReport.readYearlyReports();
     HashMap<Integer, Integer> yearExpenseList = new HashMap<>();
     HashMap<Integer, Integer> yearIncomeList = new HashMap<>();
 

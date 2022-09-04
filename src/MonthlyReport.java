@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class MonthlyReport {
 
     ReadMonthlyReport readMonthlyReport = new ReadMonthlyReport();
-    HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = readMonthlyReport.monthlyReports();
+    HashMap<Integer,ArrayList<MonthConstructor>> monthlyReportsMap = readMonthlyReport.readMonthlyReports();
 
     public void getMaxProfitItem(){
 
@@ -20,8 +20,6 @@ public class MonthlyReport {
                             maxProfitItemName = record.item_name;
                     }
                 }
-                System.out.println(items);
-                System.out.println("========");
             }
             System.out.println(GetMonthName.getMonthName(month) + ". " + maxProfitItemName + " - " + maxProfitItem);
         }
