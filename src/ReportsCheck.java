@@ -21,28 +21,46 @@ public class ReportsCheck {
         }
 
         for(int month: monthlyReportsMap.keySet()){
-            int amountIncome = 0;
             int amountExpense = 0;
-            int amountSum = 0;
+            int amountSumExp = 0;
             ArrayList<MonthConstructor> list = monthlyReportsMap.get(month);
-            for(MonthConstructor record: list){
-                amountSum = record.sum_of_one * record.quantity;
-                amount += amountSum; // Пытаюсь проссумировать
-                if(record.is_expense){
-                    monthExpenseList.put(month,amount);
-                } else {
-                    monthIncomeList.put(month,amount);
+            for(MonthConstructor record: list) {
+                if (record.is_expense) {
+                    amountSumExp = record.sum_of_one * record.quantity;
+                    amountExpense += amountSumExp;
+                    monthExpenseList.put(month, amountExpense);
                 }
             }
-            System.out.println(monthIncomeList);
-            System.out.println("========");
+            if (yearExpenseList.get(month).equals(monthExpenseList.get(month)) == false){
+                System.out.println("Обнаружено несоотвествие данных в месяце:" + GetMonthName.getMonthName(month));
+            }else {
+                System.out.println("Сверка расходов за " + GetMonthName.getMonthName(month) +  " выполнена успешно!");
+            }
         }
-        System.out.println(monthIncomeList +"|||" + monthExpenseList);
-        System.out.println(yearIncomeList + "|||" + yearExpenseList);
-        System.out.println(yearIncomeList.equals(monthIncomeList));
-        System.out.println(yearExpenseList.equals(monthExpenseList));
+        for(int month: monthlyReportsMap.keySet()) {
+            int amountIncome = 0;
+            int amountSumInc = 0;
+            ArrayList<MonthConstructor> list = monthlyReportsMap.get(month);
+            for (MonthConstructor recordd : list) {
+                if (!recordd.is_expense) {
+                    amountSumInc = recordd.sum_of_one * recordd.quantity;
+                    amountIncome += amountSumInc;
+                    monthIncomeList.put(month, amountIncome);
+                    }
+                }
+            if (yearIncomeList.get(month).equals(monthIncomeList.get(month)) == false){
+                System.out.println("Обнаружено несоотвествие данных в месяце:" + GetMonthName.getMonthName(month));
+            } else {
+                System.out.println("Сверка доходов за " + GetMonthName.getMonthName(month) +  " выполнена успешно!");
+            }
+        }
     }
 }
+
+//System.out.println(monthIncomeList +"|||" + monthExpenseList);
+//System.out.println(yearIncomeList + "|||" + yearExpenseList);
+//System.out.println(yearIncomeList.equals(monthIncomeList));
+//System.out.println(yearExpenseList.equals(monthExpenseList));
 
 /* При вызове сверки данных программа должна:
 Подсчитывать две суммы: общие доходы и общие расходы по каждому из месяцев.
