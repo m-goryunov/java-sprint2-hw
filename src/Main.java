@@ -8,7 +8,7 @@ public class Main {
         YearlyReport yearlyReport = new YearlyReport();
         ReportsCheck reportsCheck = new ReportsCheck();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
-        boolean checkReadOrNotMonth = false; // Для пункта ТЗ по проверки считывания файлов. Наверное, очень наивно выглядит,
+        boolean checkReadOrNotMonth = false; // Ввёл переменные для пункта ТЗ по проверке считывания файлов. Наверное, очень наивно выглядит,
         boolean checkReadOrNotYear = false;  // но мне пришлось это реализовать, когда уже всё остальное сделал, у меня считывание происходит при вызове любого из пунктов
         while (true){                        // и в классе ReadCSVUtil идёт проверка на null отчета.
             printMenu();
@@ -24,7 +24,7 @@ public class Main {
             }else if(command == 3){
                 if (checkReadOrNotMonth && checkReadOrNotYear == true){
                 reportsCheck.reportsCheck();
-                }else {
+                } else {
                     System.out.println("Вы не считали отчеты!");
                 }
             }else if(command == 4){
@@ -60,5 +60,4 @@ public class Main {
     System.out.println("5. Вывести информацию о годовом отчете");
     System.out.println("0. Выход из программы");
     }
-
 }
