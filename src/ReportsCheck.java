@@ -13,7 +13,6 @@ public class ReportsCheck {
 
     private ArrayList<ReportsCheckConstructor> prepareMonthReportsForCheck(){
         ArrayList<ReportsCheckConstructor> values = new ArrayList<>();
-
         for (int month : monthlyReportsMap.keySet()) {
             int itemValueSumExp =0;
             int itemValueSumInc =0;
@@ -47,7 +46,6 @@ public class ReportsCheck {
         for(ReportsCheckConstructor record: prepareMonthReportsForCheck()) {
                 monthExpenseList.put(record.month, record.itemValueSumExp);
                 monthIncomeList.put(record.month, record.itemValueSumInc);
-
             if (!yearExpenseList.get(record.month).equals(monthExpenseList.get(record.month))) {
                 System.out.println("Расходы. Обнаружено несоотвествие данных в месяце:" + GetMonthName.getMonthName(record.month));
             } else {

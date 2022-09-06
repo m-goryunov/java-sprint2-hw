@@ -52,6 +52,7 @@ public class Main {
         }
     }
 
+
     public static void printMenu(){
     System.out.println("1. Считать все месячные отчеты");
     System.out.println("2. Считать годовой отчет");
