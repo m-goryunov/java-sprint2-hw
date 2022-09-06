@@ -11,11 +11,6 @@ public class ReportsCheck {
     HashMap<Integer, Integer> monthExpenseList = new HashMap<>();
     HashMap<Integer, Integer> monthIncomeList = new HashMap<>();
 
-    private void prepareYearReportsForCheck() {
-
-    }
-
-
     private ArrayList<ReportsCheckConstructor> prepareMonthReportsForCheck(){
         ArrayList<ReportsCheckConstructor> values = new ArrayList<>();
 
@@ -64,9 +59,6 @@ public class ReportsCheck {
             } else {
                 System.out.println("Сверка доходов за " + GetMonthName.getMonthName(record.month) + " выполнена успешно!");
             }
-
-            //System.out.println("Расходы: " + monthExpenseList + "|||" + yearExpenseList);
-            //System.out.println("Доходы: " + monthIncomeList + "|||" + yearIncomeList);
         }
     }
 }

@@ -8,9 +8,9 @@ public class Main {
         YearlyReport yearlyReport = new YearlyReport();
         ReportsCheck reportsCheck = new ReportsCheck();
         System.out.println("Автоматизатор бухгалтерии. Что вы хотите сделать?");
-        boolean checkReadOrNotMonth = false; // Ввёл переменные для пункта ТЗ по проверке считывания файлов. Наверное, очень наивно выглядит,
-        boolean checkReadOrNotYear = false;  // но мне пришлось это реализовать, когда уже всё остальное сделал, у меня считывание происходит при вызове любого из пунктов
-        while (true){                        // и в классе ReadCSVUtil идёт проверка на null отчета.
+        boolean checkReadOrNotMonth = false;
+        boolean checkReadOrNotYear = false;
+        while (true){
             printMenu();
            int command = scanner.nextInt();
             if(command == 1){
@@ -22,14 +22,13 @@ public class Main {
                 readYearlyReport.readYearlyReports();
                 System.out.println("Годовой отчет успешно загружен!");
             }else if(command == 3){
-                reportsCheck.checkReports();
-                if (checkReadOrNotMonth && checkReadOrNotYear == true){
-
+                if (checkReadOrNotMonth && checkReadOrNotYear){
+                    reportsCheck.checkReports();
                 } else {
                     System.out.println("Вы не считали отчеты!");
                 }
             }else if(command == 4){
-                if(checkReadOrNotMonth == true){
+                if(checkReadOrNotMonth){
                 System.out.println("Самые прибыльные товары:");
                 monthlyReport.getMaxProfitItem();
                 System.out.println("Самые большие траты:");
@@ -38,7 +37,7 @@ public class Main {
                     System.out.println("Вы не считали отчеты!");
                 }
             }else if(command == 5){
-                if(checkReadOrNotYear == true) {
+                if(checkReadOrNotYear) {
                 yearlyReport.GetProfitPerMonth();
                 yearlyReport.GetAvgIncomeAndExpense();
                 } else {
