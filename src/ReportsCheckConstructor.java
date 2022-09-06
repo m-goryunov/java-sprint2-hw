@@ -1,20 +1,20 @@
 public class ReportsCheckConstructor {
     int month;
-    boolean is_expense;
-    int itemValueSum;
+    int itemValueSumExp;
+    int itemValueSumInc;
 
-    public ReportsCheckConstructor(int month, boolean is_expense, int itemValueSum) {
+    public ReportsCheckConstructor(int month, int itemValueSumExp, int itemValueSumInc) {
         this.month = month;
-        this.is_expense = is_expense;
-        this.itemValueSum = itemValueSum;
+        this.itemValueSumExp = itemValueSumExp;
+        this.itemValueSumInc = itemValueSumInc;
     }
 
     @Override
     public String toString() {
         return "{" +
                 "month=" + month +
-                ", is_expense=" + is_expense +
-                ", itemValueSum=" + itemValueSum +
+                ", itemValueSumExp=" + itemValueSumExp +
+                ", itemValueSumInc=" + itemValueSumInc +
                 '}';
     }
 }
