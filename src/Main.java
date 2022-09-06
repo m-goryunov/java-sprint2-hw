@@ -22,8 +22,9 @@ public class Main {
                 readYearlyReport.readYearlyReports();
                 System.out.println("Годовой отчет успешно загружен!");
             }else if(command == 3){
+                reportsCheck.checkReports();
                 if (checkReadOrNotMonth && checkReadOrNotYear == true){
-                reportsCheck.reportsCheck();
+
                 } else {
                     System.out.println("Вы не считали отчеты!");
                 }
